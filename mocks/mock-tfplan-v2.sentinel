@@ -1,0 +1,891 @@
+terraform_version = "0.12.28"
+
+planned_values = {
+	"outputs": {
+		"tfe": {
+			"name":      "tfe",
+			"sensitive": false,
+			"value":     undefined,
+		},
+	},
+	"resources": {
+		"google_compute_instance.tfe": {
+			"address":        "google_compute_instance.tfe",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "tfe",
+			"provider_name":  "google",
+			"tainted":        false,
+			"type":           "google_compute_instance",
+			"values": {
+				"allow_stopping_for_update": null,
+				"attached_disk":             [],
+				"boot_disk": [
+					{
+						"auto_delete":             true,
+						"disk_encryption_key_raw": null,
+						"initialize_params": [
+							{
+								"image": "centos-7-v20200618",
+								"size":  100,
+								"type":  "pd-ssd",
+							},
+						],
+						"mode": "READ_WRITE",
+					},
+				],
+				"can_ip_forward":          false,
+				"deletion_protection":     false,
+				"description":             null,
+				"desired_status":          null,
+				"enable_display":          null,
+				"hostname":                "blub.msk.pub",
+				"labels":                  null,
+				"machine_type":            "n1-standard-2",
+				"metadata":                null,
+				"metadata_startup_script": null,
+				"name": "tfe-0815",
+				"network_interface": [
+					{
+						"access_config": [
+							{
+								"public_ptr_domain_name": null,
+							},
+						],
+						"alias_ip_range": [],
+						"network":        "default",
+					},
+				],
+				"resource_policies": null,
+				"scratch_disk":      [],
+				"service_account": [
+					{
+						"scopes": [
+							"https://www.googleapis.com/auth/compute.readonly",
+							"https://www.googleapis.com/auth/devstorage.read_only",
+							"https://www.googleapis.com/auth/userinfo.email",
+						],
+					},
+				],
+				"shielded_instance_config": [],
+				"tags": [
+					"manual",
+					"tfe",
+				],
+				"timeouts": null,
+				"zone":     "europe-west3-a",
+			},
+		},
+		"google_storage_bucket.bucket": {
+			"address":        "google_storage_bucket.bucket",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "bucket",
+			"provider_name":  "google",
+			"tainted":        false,
+			"type":           "google_storage_bucket",
+			"values": {
+				"cors": [],
+				"default_event_based_hold": null,
+				"encryption":               [],
+				"force_destroy":            false,
+				"labels":                   null,
+				"lifecycle_rule":           [],
+				"location":                 "US",
+				"logging":                  [],
+				"name":                     "static-content-bucket-asd-123",
+				"requester_pays":           null,
+				"retention_policy":         [],
+				"storage_class":            "STANDARD",
+				"versioning":               [],
+				"website":                  [],
+			},
+		},
+		"google_storage_bucket_access_control.public_rule": {
+			"address":        "google_storage_bucket_access_control.public_rule",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "public_rule",
+			"provider_name":  "google",
+			"tainted":        false,
+			"type":           "google_storage_bucket_access_control",
+			"values": {
+				"bucket":   "static-content-bucket-asd-123",
+				"entity":   "allUsers",
+				"role":     "READER",
+				"timeouts": null,
+			},
+		},
+	},
+}
+
+variables = {
+	"project": {
+		"name":  "project",
+		"value": "mkaesz",
+	},
+}
+
+resource_changes = {
+	"google_compute_instance.tfe": {
+		"address": "google_compute_instance.tfe",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"allow_stopping_for_update": null,
+				"attached_disk":             [],
+				"boot_disk": [
+					{
+						"auto_delete":             true,
+						"disk_encryption_key_raw": null,
+						"initialize_params": [
+							{
+								"image": "centos-7-v20200618",
+								"size":  100,
+								"type":  "pd-ssd",
+							},
+						],
+						"mode": "READ_WRITE",
+					},
+				],
+				"can_ip_forward":          false,
+				"deletion_protection":     false,
+				"description":             null,
+				"desired_status":          null,
+				"enable_display":          null,
+				"hostname":                "blub.msk.pub",
+				"labels":                  null,
+				"machine_type":            "n1-standard-2",
+				"metadata":                null,
+				"metadata_startup_script": null,
+				"name": "tfe-0815",
+				"network_interface": [
+					{
+						"access_config": [
+							{
+								"public_ptr_domain_name": null,
+							},
+						],
+						"alias_ip_range": [],
+						"network":        "default",
+					},
+				],
+				"resource_policies": null,
+				"scratch_disk":      [],
+				"service_account": [
+					{
+						"scopes": [
+							"https://www.googleapis.com/auth/compute.readonly",
+							"https://www.googleapis.com/auth/devstorage.read_only",
+							"https://www.googleapis.com/auth/userinfo.email",
+						],
+					},
+				],
+				"shielded_instance_config": [],
+				"tags": [
+					"manual",
+					"tfe",
+				],
+				"timeouts": null,
+				"zone":     "europe-west3-a",
+			},
+			"after_unknown": {
+				"attached_disk": [],
+				"boot_disk": [
+					{
+						"device_name":                true,
+						"disk_encryption_key_sha256": true,
+						"initialize_params": [
+							{
+								"labels": true,
+							},
+						],
+						"kms_key_self_link": true,
+						"source":            true,
+					},
+				],
+				"cpu_platform":         true,
+				"current_status":       true,
+				"guest_accelerator":    true,
+				"id":                   true,
+				"instance_id":          true,
+				"label_fingerprint":    true,
+				"metadata_fingerprint": true,
+				"min_cpu_platform":     true,
+				"network_interface": [
+					{
+						"access_config": [
+							{
+								"nat_ip":       true,
+								"network_tier": true,
+							},
+						],
+						"alias_ip_range":     [],
+						"name":               true,
+						"network_ip":         true,
+						"subnetwork":         true,
+						"subnetwork_project": true,
+					},
+				],
+				"project":      true,
+				"scheduling":   true,
+				"scratch_disk": [],
+				"self_link":    true,
+				"service_account": [
+					{
+						"email": true,
+						"scopes": [
+							false,
+							false,
+							false,
+						],
+					},
+				],
+				"shielded_instance_config": [],
+				"tags": [
+					false,
+					false,
+				],
+				"tags_fingerprint": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "tfe",
+		"provider_name":  "google",
+		"type":           "google_compute_instance",
+	},
+	"google_storage_bucket.bucket": {
+		"address": "google_storage_bucket.bucket",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"cors": [],
+				"default_event_based_hold": null,
+				"encryption":               [],
+				"force_destroy":            false,
+				"labels":                   null,
+				"lifecycle_rule":           [],
+				"location":                 "US",
+				"logging":                  [],
+				"name":                     "static-content-bucket-asd-123",
+				"requester_pays":           null,
+				"retention_policy":         [],
+				"storage_class":            "STANDARD",
+				"versioning":               [],
+				"website":                  [],
+			},
+			"after_unknown": {
+				"bucket_policy_only":          true,
+				"cors":                        [],
+				"encryption":                  [],
+				"id":                          true,
+				"lifecycle_rule":              [],
+				"logging":                     [],
+				"project":                     true,
+				"retention_policy":            [],
+				"self_link":                   true,
+				"uniform_bucket_level_access": true,
+				"url":        true,
+				"versioning": [],
+				"website":    [],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "bucket",
+		"provider_name":  "google",
+		"type":           "google_storage_bucket",
+	},
+	"google_storage_bucket_access_control.public_rule": {
+		"address": "google_storage_bucket_access_control.public_rule",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"bucket":   "static-content-bucket-asd-123",
+				"entity":   "allUsers",
+				"role":     "READER",
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"domain": true,
+				"email":  true,
+				"id":     true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "public_rule",
+		"provider_name":  "google",
+		"type":           "google_storage_bucket_access_control",
+	},
+}
+
+output_changes = {
+	"tfe": {
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after":         undefined,
+			"after_unknown": true,
+			"before":        null,
+		},
+		"name": "tfe",
+	},
+}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"project": {
+						"references": [
+							"var.project",
+						],
+					},
+				},
+				"name": "google",
+			},
+		},
+		"root_module": {
+			"outputs": {
+				"tfe": {
+					"expression": {
+						"references": [
+							"google_compute_instance.tfe",
+						],
+					},
+				},
+			},
+			"resources": [
+				{
+					"address": "google_compute_instance.tfe",
+					"expressions": {
+						"boot_disk": [
+							{
+								"initialize_params": [
+									{
+										"image": {
+											"constant_value": "centos-7-v20200618",
+										},
+										"size": {
+											"constant_value": 100,
+										},
+										"type": {
+											"constant_value": "pd-ssd",
+										},
+									},
+								],
+							},
+						],
+						"hostname": {
+							"constant_value": "blub.msk.pub",
+						},
+						"machine_type": {
+							"constant_value": "n1-standard-2",
+						},
+						"name": {
+							"constant_value": "tfe-0815",
+						},
+						"network_interface": [
+							{
+								"access_config": [
+									{},
+								],
+								"network": {
+									"constant_value": "default",
+								},
+							},
+						],
+						"service_account": [
+							{
+								"scopes": {
+									"constant_value": [
+										"userinfo-email",
+										"compute-ro",
+										"storage-ro",
+									],
+								},
+							},
+						],
+						"tags": {
+							"constant_value": [
+								"tfe",
+								"manual",
+							],
+						},
+						"zone": {
+							"constant_value": "europe-west3-a",
+						},
+					},
+					"mode":                "managed",
+					"name":                "tfe",
+					"provider_config_key": "google",
+					"schema_version":      6,
+					"type":                "google_compute_instance",
+				},
+				{
+					"address": "google_storage_bucket.bucket",
+					"expressions": {
+						"name": {
+							"constant_value": "static-content-bucket-asd-123",
+						},
+					},
+					"mode":                "managed",
+					"name":                "bucket",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_storage_bucket",
+				},
+				{
+					"address": "google_storage_bucket_access_control.public_rule",
+					"expressions": {
+						"bucket": {
+							"references": [
+								"google_storage_bucket.bucket",
+							],
+						},
+						"entity": {
+							"constant_value": "allUsers",
+						},
+						"role": {
+							"constant_value": "READER",
+						},
+					},
+					"mode":                "managed",
+					"name":                "public_rule",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_storage_bucket_access_control",
+				},
+				{
+					"address": "data.google_compute_network.default",
+					"expressions": {
+						"name": {
+							"constant_value": "default",
+						},
+					},
+					"mode":                "data",
+					"name":                "default",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_compute_network",
+				},
+			],
+			"variables": {
+				"project": {
+					"default": "mkaesz",
+				},
+			},
+		},
+	},
+	"format_version": "0.1",
+	"output_changes": {
+		"tfe": {
+			"actions": [
+				"create",
+			],
+			"after_unknown": true,
+			"before":        null,
+		},
+	},
+	"planned_values": {
+		"outputs": {
+			"tfe": {
+				"sensitive": false,
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_compute_instance.tfe",
+					"mode":           "managed",
+					"name":           "tfe",
+					"provider_name":  "google",
+					"schema_version": 6,
+					"type":           "google_compute_instance",
+					"values": {
+						"allow_stopping_for_update": null,
+						"attached_disk":             [],
+						"boot_disk": [
+							{
+								"auto_delete":             true,
+								"disk_encryption_key_raw": null,
+								"initialize_params": [
+									{
+										"image": "centos-7-v20200618",
+										"size":  100,
+										"type":  "pd-ssd",
+									},
+								],
+								"mode": "READ_WRITE",
+							},
+						],
+						"can_ip_forward":          false,
+						"deletion_protection":     false,
+						"description":             null,
+						"desired_status":          null,
+						"enable_display":          null,
+						"hostname":                "blub.msk.pub",
+						"labels":                  null,
+						"machine_type":            "n1-standard-2",
+						"metadata":                null,
+						"metadata_startup_script": null,
+						"name": "tfe-0815",
+						"network_interface": [
+							{
+								"access_config": [
+									{
+										"public_ptr_domain_name": null,
+									},
+								],
+								"alias_ip_range": [],
+								"network":        "default",
+							},
+						],
+						"resource_policies": null,
+						"scratch_disk":      [],
+						"service_account": [
+							{
+								"scopes": [
+									"https://www.googleapis.com/auth/compute.readonly",
+									"https://www.googleapis.com/auth/devstorage.read_only",
+									"https://www.googleapis.com/auth/userinfo.email",
+								],
+							},
+						],
+						"shielded_instance_config": [],
+						"tags": [
+							"manual",
+							"tfe",
+						],
+						"timeouts": null,
+						"zone":     "europe-west3-a",
+					},
+				},
+				{
+					"address":        "google_storage_bucket.bucket",
+					"mode":           "managed",
+					"name":           "bucket",
+					"provider_name":  "google",
+					"schema_version": 0,
+					"type":           "google_storage_bucket",
+					"values": {
+						"cors": [],
+						"default_event_based_hold": null,
+						"encryption":               [],
+						"force_destroy":            false,
+						"labels":                   null,
+						"lifecycle_rule":           [],
+						"location":                 "US",
+						"logging":                  [],
+						"name":                     "static-content-bucket-asd-123",
+						"requester_pays":           null,
+						"retention_policy":         [],
+						"storage_class":            "STANDARD",
+						"versioning":               [],
+						"website":                  [],
+					},
+				},
+				{
+					"address":        "google_storage_bucket_access_control.public_rule",
+					"mode":           "managed",
+					"name":           "public_rule",
+					"provider_name":  "google",
+					"schema_version": 0,
+					"type":           "google_storage_bucket_access_control",
+					"values": {
+						"bucket":   "static-content-bucket-asd-123",
+						"entity":   "allUsers",
+						"role":     "READER",
+						"timeouts": null,
+					},
+				},
+			],
+		},
+	},
+	"prior_state": {
+		"format_version":    "0.1",
+		"terraform_version": "0.12.28",
+		"values": {
+			"root_module": {
+				"resources": [
+					{
+						"address":        "data.google_compute_network.default",
+						"mode":           "data",
+						"name":           "default",
+						"provider_name":  "google",
+						"schema_version": 0,
+						"type":           "google_compute_network",
+						"values": {
+							"description":  "Default network for the project",
+							"gateway_ipv4": "",
+							"id":           "projects/mkaesz/global/networks/default",
+							"name":         "default",
+							"project":      null,
+							"self_link":    "https://www.googleapis.com/compute/v1/projects/mkaesz/global/networks/default",
+							"subnetworks_self_links": [
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-east1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-southeast2/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-east4/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west4/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-north1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-northeast1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west3/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west2/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-central1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-southeast1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west3/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-east1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-east2/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-northeast2/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/southamerica-east1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west2/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/australia-southeast1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-northeast3/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west4/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-south1/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west6/subnetworks/default",
+								"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/northamerica-northeast1/subnetworks/default",
+							],
+						},
+					},
+				],
+			},
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "google_compute_instance.tfe",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"allow_stopping_for_update": null,
+					"attached_disk":             [],
+					"boot_disk": [
+						{
+							"auto_delete":             true,
+							"disk_encryption_key_raw": null,
+							"initialize_params": [
+								{
+									"image": "centos-7-v20200618",
+									"size":  100,
+									"type":  "pd-ssd",
+								},
+							],
+							"mode": "READ_WRITE",
+						},
+					],
+					"can_ip_forward":          false,
+					"deletion_protection":     false,
+					"description":             null,
+					"desired_status":          null,
+					"enable_display":          null,
+					"hostname":                "blub.msk.pub",
+					"labels":                  null,
+					"machine_type":            "n1-standard-2",
+					"metadata":                null,
+					"metadata_startup_script": null,
+					"name": "tfe-0815",
+					"network_interface": [
+						{
+							"access_config": [
+								{
+									"public_ptr_domain_name": null,
+								},
+							],
+							"alias_ip_range": [],
+							"network":        "default",
+						},
+					],
+					"resource_policies": null,
+					"scratch_disk":      [],
+					"service_account": [
+						{
+							"scopes": [
+								"https://www.googleapis.com/auth/compute.readonly",
+								"https://www.googleapis.com/auth/devstorage.read_only",
+								"https://www.googleapis.com/auth/userinfo.email",
+							],
+						},
+					],
+					"shielded_instance_config": [],
+					"tags": [
+						"manual",
+						"tfe",
+					],
+					"timeouts": null,
+					"zone":     "europe-west3-a",
+				},
+				"after_unknown": {
+					"attached_disk": [],
+					"boot_disk": [
+						{
+							"device_name":                true,
+							"disk_encryption_key_sha256": true,
+							"initialize_params": [
+								{
+									"labels": true,
+								},
+							],
+							"kms_key_self_link": true,
+							"source":            true,
+						},
+					],
+					"cpu_platform":         true,
+					"current_status":       true,
+					"guest_accelerator":    true,
+					"id":                   true,
+					"instance_id":          true,
+					"label_fingerprint":    true,
+					"metadata_fingerprint": true,
+					"min_cpu_platform":     true,
+					"network_interface": [
+						{
+							"access_config": [
+								{
+									"nat_ip":       true,
+									"network_tier": true,
+								},
+							],
+							"alias_ip_range":     [],
+							"name":               true,
+							"network_ip":         true,
+							"subnetwork":         true,
+							"subnetwork_project": true,
+						},
+					],
+					"project":      true,
+					"scheduling":   true,
+					"scratch_disk": [],
+					"self_link":    true,
+					"service_account": [
+						{
+							"email": true,
+							"scopes": [
+								false,
+								false,
+								false,
+							],
+						},
+					],
+					"shielded_instance_config": [],
+					"tags": [
+						false,
+						false,
+					],
+					"tags_fingerprint": true,
+				},
+				"before": null,
+			},
+			"mode":          "managed",
+			"name":          "tfe",
+			"provider_name": "google",
+			"type":          "google_compute_instance",
+		},
+		{
+			"address": "google_storage_bucket.bucket",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"cors": [],
+					"default_event_based_hold": null,
+					"encryption":               [],
+					"force_destroy":            false,
+					"labels":                   null,
+					"lifecycle_rule":           [],
+					"location":                 "US",
+					"logging":                  [],
+					"name":                     "static-content-bucket-asd-123",
+					"requester_pays":           null,
+					"retention_policy":         [],
+					"storage_class":            "STANDARD",
+					"versioning":               [],
+					"website":                  [],
+				},
+				"after_unknown": {
+					"bucket_policy_only":          true,
+					"cors":                        [],
+					"encryption":                  [],
+					"id":                          true,
+					"lifecycle_rule":              [],
+					"logging":                     [],
+					"project":                     true,
+					"retention_policy":            [],
+					"self_link":                   true,
+					"uniform_bucket_level_access": true,
+					"url":        true,
+					"versioning": [],
+					"website":    [],
+				},
+				"before": null,
+			},
+			"mode":          "managed",
+			"name":          "bucket",
+			"provider_name": "google",
+			"type":          "google_storage_bucket",
+		},
+		{
+			"address": "google_storage_bucket_access_control.public_rule",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"bucket":   "static-content-bucket-asd-123",
+					"entity":   "allUsers",
+					"role":     "READER",
+					"timeouts": null,
+				},
+				"after_unknown": {
+					"domain": true,
+					"email":  true,
+					"id":     true,
+				},
+				"before": null,
+			},
+			"mode":          "managed",
+			"name":          "public_rule",
+			"provider_name": "google",
+			"type":          "google_storage_bucket_access_control",
+		},
+	],
+	"terraform_version": "0.12.28",
+	"variables": {
+		"project": {
+			"value": "mkaesz",
+		},
+	},
+}

@@ -1,0 +1,628 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_compute_instance": {
+				"tfe": {
+					0: {
+						"applied": {
+							"allow_stopping_for_update": null,
+							"attached_disk":             [],
+							"boot_disk": [
+								{
+									"auto_delete":             true,
+									"disk_encryption_key_raw": null,
+									"initialize_params": [
+										{
+											"image": "centos-7-v20200618",
+											"size":  100,
+											"type":  "pd-ssd",
+										},
+									],
+									"mode": "READ_WRITE",
+								},
+							],
+							"can_ip_forward":          false,
+							"deletion_protection":     false,
+							"description":             null,
+							"desired_status":          null,
+							"enable_display":          null,
+							"hostname":                "blub.msk.pub",
+							"labels":                  null,
+							"machine_type":            "n1-standard-2",
+							"metadata":                null,
+							"metadata_startup_script": null,
+							"name": "tfe-0815",
+							"network_interface": [
+								{
+									"access_config": [
+										{
+											"public_ptr_domain_name": null,
+										},
+									],
+									"alias_ip_range": [],
+									"network":        "default",
+								},
+							],
+							"resource_policies": null,
+							"scratch_disk":      [],
+							"service_account": [
+								{
+									"scopes": [
+										"https://www.googleapis.com/auth/compute.readonly",
+										"https://www.googleapis.com/auth/devstorage.read_only",
+										"https://www.googleapis.com/auth/userinfo.email",
+									],
+								},
+							],
+							"shielded_instance_config": [],
+							"tags": [
+								"manual",
+								"tfe",
+							],
+							"timeouts": null,
+							"zone":     "europe-west3-a",
+						},
+						"destroy": false,
+						"diff": {
+							"allow_stopping_for_update": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"attached_disk.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"boot_disk.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"boot_disk.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.auto_delete": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"boot_disk.0.device_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.disk_encryption_key_raw": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.disk_encryption_key_sha256": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.image": {
+								"computed": false,
+								"new":      "centos-7-v20200618",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.labels": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.size": {
+								"computed": false,
+								"new":      "100",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.type": {
+								"computed": false,
+								"new":      "pd-ssd",
+								"old":      "",
+							},
+							"boot_disk.0.kms_key_self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.mode": {
+								"computed": false,
+								"new":      "READ_WRITE",
+								"old":      "",
+							},
+							"boot_disk.0.source": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"can_ip_forward": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"cpu_platform": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"current_status": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"desired_status": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_display": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"guest_accelerator.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"hostname": {
+								"computed": false,
+								"new":      "blub.msk.pub",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"label_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"machine_type": {
+								"computed": false,
+								"new":      "n1-standard-2",
+								"old":      "",
+							},
+							"metadata": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"metadata_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"metadata_startup_script": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"min_cpu_platform": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "tfe-0815",
+								"old":      "",
+							},
+							"network_interface.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"network_interface.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.access_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"network_interface.0.access_config.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.access_config.0.nat_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.access_config.0.network_tier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.access_config.0.public_ptr_domain_name": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.alias_ip_range.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"network_interface.0.name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.network": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"network_interface.0.network_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.subnetwork": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.subnetwork_project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_policies": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"scheduling.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"scratch_disk.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"service_account.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account.0.email": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account.0.scopes.#": {
+								"computed": false,
+								"new":      "3",
+								"old":      "",
+							},
+							"service_account.0.scopes.0": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/compute.readonly",
+								"old":      "",
+							},
+							"service_account.0.scopes.1": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/devstorage.read_only",
+								"old":      "",
+							},
+							"service_account.0.scopes.2": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/userinfo.email",
+								"old":      "",
+							},
+							"shielded_instance_config.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"tags.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"tags.0": {
+								"computed": false,
+								"new":      "manual",
+								"old":      "",
+							},
+							"tags.1": {
+								"computed": false,
+								"new":      "tfe",
+								"old":      "",
+							},
+							"tags_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": false,
+								"new":      "europe-west3-a",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_storage_bucket": {
+				"bucket": {
+					0: {
+						"applied": {
+							"cors": [],
+							"default_event_based_hold": null,
+							"encryption":               [],
+							"force_destroy":            false,
+							"labels":                   null,
+							"lifecycle_rule":           [],
+							"location":                 "US",
+							"logging":                  [],
+							"name":                     "static-content-bucket-asd-123",
+							"requester_pays":           null,
+							"retention_policy":         [],
+							"storage_class":            "STANDARD",
+							"versioning":               [],
+							"website":                  [],
+						},
+						"destroy": false,
+						"diff": {
+							"bucket_policy_only": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cors.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"default_event_based_hold": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"encryption.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"force_destroy": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"lifecycle_rule.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "US",
+								"old":      "",
+							},
+							"logging.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "static-content-bucket-asd-123",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"requester_pays": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"retention_policy.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_class": {
+								"computed": false,
+								"new":      "STANDARD",
+								"old":      "",
+							},
+							"uniform_bucket_level_access": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"versioning.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"website.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_storage_bucket_access_control": {
+				"public_rule": {
+					0: {
+						"applied": {
+							"bucket":   "static-content-bucket-asd-123",
+							"entity":   "allUsers",
+							"role":     "READER",
+							"timeouts": null,
+						},
+						"destroy": false,
+						"diff": {
+							"bucket": {
+								"computed": false,
+								"new":      "static-content-bucket-asd-123",
+								"old":      "",
+							},
+							"domain": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"email": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"entity": {
+								"computed": false,
+								"new":      "allUsers",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"role": {
+								"computed": false,
+								"new":      "READER",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.12.28"
+
+variables = {
+	"project": "mkaesz",
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

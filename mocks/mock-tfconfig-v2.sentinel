@@ -1,0 +1,187 @@
+import "strings"
+
+providers = {
+	"google": {
+		"alias": "",
+		"config": {
+			"project": {
+				"references": [
+					"var.project",
+				],
+			},
+		},
+		"module_address":      "",
+		"name":                "google",
+		"provider_config_key": "google",
+		"version_constraint":  "",
+	},
+}
+
+resources = {
+	"data.google_compute_network.default": {
+		"address": "data.google_compute_network.default",
+		"config": {
+			"name": {
+				"constant_value": "default",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "default",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_compute_network",
+	},
+	"google_compute_instance.tfe": {
+		"address": "google_compute_instance.tfe",
+		"config": {
+			"boot_disk": [
+				{
+					"initialize_params": [
+						{
+							"image": {
+								"constant_value": "centos-7-v20200618",
+							},
+							"size": {
+								"constant_value": 100,
+							},
+							"type": {
+								"constant_value": "pd-ssd",
+							},
+						},
+					],
+				},
+			],
+			"hostname": {
+				"constant_value": "blub.msk.pub",
+			},
+			"machine_type": {
+				"constant_value": "n1-standard-2",
+			},
+			"name": {
+				"constant_value": "tfe-0815",
+			},
+			"network_interface": [
+				{
+					"access_config": [
+						{},
+					],
+					"network": {
+						"constant_value": "default",
+					},
+				},
+			],
+			"service_account": [
+				{
+					"scopes": {
+						"constant_value": [
+							"userinfo-email",
+							"compute-ro",
+							"storage-ro",
+						],
+					},
+				},
+			],
+			"tags": {
+				"constant_value": [
+					"tfe",
+					"manual",
+				],
+			},
+			"zone": {
+				"constant_value": "europe-west3-a",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "tfe",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_compute_instance",
+	},
+	"google_storage_bucket.bucket": {
+		"address": "google_storage_bucket.bucket",
+		"config": {
+			"name": {
+				"constant_value": "static-content-bucket-asd-123",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "bucket",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_storage_bucket",
+	},
+	"google_storage_bucket_access_control.public_rule": {
+		"address": "google_storage_bucket_access_control.public_rule",
+		"config": {
+			"bucket": {
+				"references": [
+					"google_storage_bucket.bucket",
+				],
+			},
+			"entity": {
+				"constant_value": "allUsers",
+			},
+			"role": {
+				"constant_value": "READER",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "public_rule",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_storage_bucket_access_control",
+	},
+}
+
+provisioners = {}
+
+variables = {
+	"project": {
+		"default":        "mkaesz",
+		"description":    "",
+		"module_address": "",
+		"name":           "project",
+	},
+}
+
+outputs = {
+	"tfe": {
+		"depends_on":     [],
+		"description":    "",
+		"module_address": "",
+		"name":           "tfe",
+		"sensitive":      false,
+		"value": {
+			"references": [
+				"google_compute_instance.tfe",
+			],
+		},
+	},
+}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

@@ -1,0 +1,52 @@
+terraform_version = "0.12.28"
+
+outputs = {}
+
+resources = {
+	"google_compute_network.default": {
+		"address":        "google_compute_network.default",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "",
+		"name":           "default",
+		"provider_name":  "google",
+		"tainted":        false,
+		"type":           "google_compute_network",
+		"values": {
+			"description":  "Default network for the project",
+			"gateway_ipv4": "",
+			"id":           "projects/mkaesz/global/networks/default",
+			"name":         "default",
+			"project":      null,
+			"self_link":    "https://www.googleapis.com/compute/v1/projects/mkaesz/global/networks/default",
+			"subnetworks_self_links": [
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-east1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-southeast2/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-east4/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west4/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-north1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-northeast1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west3/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west2/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-central1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-southeast1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west3/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-east1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-east2/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-northeast2/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/southamerica-east1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west2/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/australia-southeast1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-northeast3/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/us-west4/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/asia-south1/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/europe-west6/subnetworks/default",
+				"https://www.googleapis.com/compute/v1/projects/mkaesz/regions/northamerica-northeast1/subnetworks/default",
+			],
+		},
+	},
+}

@@ -1,0 +1,192 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {
+			"google_compute_network": {
+				"default": {
+					"config": {
+						"name": "default",
+					},
+					"provisioners": null,
+					"references": {
+						"name": [],
+					},
+				},
+			},
+		},
+		"modules": {},
+		"outputs": {
+			"tfe": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"google_compute_instance.tfe",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {
+			"google": {
+				"alias": {
+					"": {
+						"config": {},
+						"references": {
+							"project": [
+								"var.project",
+							],
+						},
+						"version": "",
+					},
+				},
+				"config": {},
+				"references": {
+					"project": [
+						"var.project",
+					],
+				},
+				"version": "",
+			},
+		},
+		"resources": {
+			"google_compute_instance": {
+				"tfe": {
+					"config": {
+						"boot_disk": [
+							{
+								"initialize_params": [
+									{
+										"image": "centos-7-v20200618",
+										"size":  100,
+										"type":  "pd-ssd",
+									},
+								],
+							},
+						],
+						"hostname":     "blub.msk.pub",
+						"machine_type": "n1-standard-2",
+						"name":         "tfe-0815",
+						"network_interface": [
+							{
+								"access_config": [
+									{},
+								],
+								"network": "default",
+							},
+						],
+						"service_account": [
+							{
+								"scopes": [
+									"userinfo-email",
+									"compute-ro",
+									"storage-ro",
+								],
+							},
+						],
+						"tags": [
+							"tfe",
+							"manual",
+						],
+						"zone": "europe-west3-a",
+					},
+					"provisioners": null,
+					"references": {
+						"boot_disk": [
+							{
+								"initialize_params": [
+									{
+										"image": [],
+										"size":  [],
+										"type":  [],
+									},
+								],
+							},
+						],
+						"hostname":     [],
+						"machine_type": [],
+						"name":         [],
+						"network_interface": [
+							{
+								"access_config": [
+									{},
+								],
+								"network": [],
+							},
+						],
+						"service_account": [
+							{
+								"scopes": [],
+							},
+						],
+						"tags": [],
+						"zone": [],
+					},
+				},
+			},
+			"google_storage_bucket": {
+				"bucket": {
+					"config": {
+						"name": "static-content-bucket-asd-123",
+					},
+					"provisioners": null,
+					"references": {
+						"name": [],
+					},
+				},
+			},
+			"google_storage_bucket_access_control": {
+				"public_rule": {
+					"config": {
+						"entity": "allUsers",
+						"role":   "READER",
+					},
+					"provisioners": null,
+					"references": {
+						"bucket": [
+							"google_storage_bucket.bucket",
+						],
+						"entity": [],
+						"role":   [],
+					},
+				},
+			},
+		},
+		"variables": {
+			"project": {
+				"default":     "mkaesz",
+				"description": "",
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs
