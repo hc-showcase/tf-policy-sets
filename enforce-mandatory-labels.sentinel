@@ -107,6 +107,7 @@ mandatory_labels = [
   "name",
   "ttl",
   "owner",
+  "costcenter",
 ]
 
 ### Rules ###
